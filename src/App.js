@@ -1,22 +1,28 @@
 import React from "react";
-import {Map} from './Map'
-import {Profile} from './Profile'
-import {LogIn} from './LogIn'
-import {Register} from './Register'
+import { Map } from "./Map";
+import { ProfileWithAuth } from "./Profile";
+import { LogInWithAuth } from "./logIn";
+import { Register } from "./Register";
+import { withAuth } from "./AuthContext";
+import PropTypes from 'prop-types';
 import "./App.css";
 
 const pages = {
-  map: <Map />,
-  profile: <Profile />,
-  logIn: <LogIn />,
-  register: <Register />,
+  map: (props) => <Map {...props} />,
+  profile: (props) => <ProfileWithAuth {...props} />,
+  logIn: (props) => <LogInWithAuth {...props} />,
+  register:  <Register />,
 };
 
 class App extends React.Component {
-  state = { currentPage: "map" };
+  state = { currentPage: "logIn" };
 
   navigateTo = (page) => {
+    if (this.props.isLoggedIn){
     this.setState({ currentPage: page });
+    }else{
+      this.setState({ currentPage: "logIn" });
+    }
   };
 
   render() {
@@ -65,11 +71,17 @@ class App extends React.Component {
           </nav>
         </header>
         <main>
-          <section>{pages[this.state.currentPage]}</section>
+          <section>
+            {pages[this.state.currentPage]({navigate:this.navigateTo})}
+            </section>
         </main>
       </>
     );
   }
 }
 
-export default App;
+App.propTypes = {
+  isLoggedIn: PropTypes.bool
+};
+
+export default withAuth(App);
