@@ -1,30 +1,15 @@
 import React from "react";
 import { Map } from "./Map";
 import { ProfileWithAuth } from "./Profile";
-import { LogInWithAuth } from "./logIn";
+import { LogInWithAuth } from "./logInPage";
 import { Register } from "./Register";
-import { withAuth } from "./AuthContext";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "./App.css";
-
-const pages = {
-  map: (props) => <Map {...props} />,
-  profile: (props) => <ProfileWithAuth {...props} />,
-  logIn: (props) => <LogInWithAuth {...props} />,
-  register:  <Register />,
-};
+import { connect } from "react-redux";
+import { Switch, Route, Link } from "react-router-dom";
+import { PrivateRoute } from "./PrivateRoute";
 
 class App extends React.Component {
-  state = { currentPage: "logIn" };
-
-  navigateTo = (page) => {
-    if (this.props.isLoggedIn){
-    this.setState({ currentPage: page });
-    }else{
-      this.setState({ currentPage: "logIn" });
-    }
-  };
-
   render() {
     return (
       <>
@@ -32,48 +17,29 @@ class App extends React.Component {
           <nav>
             <ul>
               <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo("map");
-                  }}
-                >
-                  Карта
-                </button>
+                <Link to="/Map">Карта</Link>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo("profile");
-                  }}
-                >
-                  Профиль
-                </button>
+                <Link to="/Profile">Профиль</Link>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo("logIn");
-                  }}
-                >
-                  Логин
-                </button>
+                <Link to="/">Логин</Link>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo("register");
-                  }}
-                >
-                  Регистрация
-                </button>
+                <Link to="/Register">Регистрация</Link>
               </li>
             </ul>
           </nav>
         </header>
         <main>
           <section>
-            {pages[this.state.currentPage]({navigate:this.navigateTo})}
-            </section>
+            <Switch>
+              <PrivateRoute path="/map" component={Map} />
+              <PrivateRoute path="/profile" component={ProfileWithAuth} />
+              <Route exact path="/" component={LogInWithAuth} />
+              <Route exact path="/register" component={Register} />
+            </Switch>
+          </section>
         </main>
       </>
     );
@@ -81,7 +47,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool,
 };
 
-export default withAuth(App);
+export default connect((state) => ({ isLoggedIn: state.auth.isLoggedIn }))(App);
