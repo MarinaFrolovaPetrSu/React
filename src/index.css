@@ -1,0 +1,60 @@
+body, header {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.map-wrapper {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+  position: relative;
+}
+
+.map {
+  height: 100vh;
+}
+
+li {
+  list-style-type: none;
+  padding: 6px 8px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.02857em;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.btn {
+  background-color: #ffc617;
+  position: relative;
+  width: 130px;
+  height: 45px;
+  border-radius: 4px;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(178, 138, 16);
+}
+
+.btnLogin {
+  width: 80px;
+  height: 40px;
+}
+
