@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#animated-example {
+  background: #cd4436;
+  height: 200px;
+  margin: 20px auto;
+  width: 300px;
+  box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+}
+
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}
+
+.btnHeader {
+  border: none;
+  background-color: inherit;
+  border-radius: 4px;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.btnHeader:hover {
+  background-color: #ddd;
+}
+
+.inputLogin {
+  color: rgba(0, 0, 0, 0.54);
+  border: 0;
+  height: 1.1875em;
+  padding: 6px 0 7px;
+  margin-bottom: 30px;
+  margin-top: 16px;
+  font-size: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-width: rgba(0, 0, 0, 0.54);
+  ;
+}
