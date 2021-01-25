@@ -1,6 +1,6 @@
 import React from "react";
 import { Map } from "./Map";
-import { ProfileWithAuth } from "./Profile";
+import  Profile  from "./Profile";
 import { LogInWithAuth } from "./logInPage";
 import { Register } from "./Register";
 import PropTypes from "prop-types";
@@ -23,7 +23,7 @@ class App extends React.Component {
             height: "100vh",
           }}
         >
-          <header
+          <header id="mainHeader"
             style={{
               backgroundColor: "#fff",
               boxShadow:
@@ -45,7 +45,7 @@ class App extends React.Component {
                   }}
                 >
                   <li>
-                    <Link to="/Map" className = "linkFromHeader">
+                    <Link to="/Map" className="linkFromHeader">
                       <button className="btnHeader">Карта</button>
                     </Link>
                   </li>
@@ -55,14 +55,7 @@ class App extends React.Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/LogInPage">
-                      <button className="btnHeader">Логин</button>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/Register">
-                      <button className="btnHeader">Регистрация</button>
-                    </Link>
+                    
                   </li>
                 </ul>
               </nav>
@@ -72,8 +65,8 @@ class App extends React.Component {
             <section>
               <Switch>
                 <PrivateRoute path="/map" component={Map} />
-                <PrivateRoute path="/profile" component={ProfileWithAuth} />
-                <Route exact path="/logInPage" component={LogInWithAuth} />
+                <PrivateRoute path="/profile" component={Profile}/>
+                <Route exact path="/" component={LogInWithAuth} />
                 <Route exact path="/register" component={Register} />
               </Switch>
             </section>

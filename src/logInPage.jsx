@@ -5,6 +5,7 @@ import "./App.css";
 import { authenticate } from "./actions";
 import { Link } from "react-router-dom";
 import logoWhite from "./img/logoWhite.png";
+import { Redirect } from "react-router-dom";
 
 export class logInPage extends Component {
   authenticate = (event) => {
@@ -17,55 +18,104 @@ export class logInPage extends Component {
     return (
       <>
         {this.props.isLoggedIn ? (
-          <Link to="/Map">
-            <button className="btn" type="submit">Перейти к Карте</button>
-          </Link>
+          <Redirect to="/map" />
         ) : (
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexWrap: "wrap",
-              boxSizing: "border-box",
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: "90vh",
-            }}
-          >
-            <div id="animatedExample" className="animated bounceInLeft">
-              <img src={logoWhite} alt={"logoWhite"} />
-            </div>
-            <div
+             <div
               style={{
-                backgroundColor: "white",
-                padding: "44px 60px",
-                minWidth: "500px",
-                marginTop: "48px",
-                marginBottom: "48px",
-                borderRadius: "4px",
+                width: "100%",
+                display: "flex",
+                flexWrap: "wrap",
+                boxSizing: "border-box",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <form onSubmit={this.authenticate}>
-                <label htmlFor="email">E-mail:</label>
-                <input id="email" type="email" name="email" size="28" />
-                <label htmlFor="password">Password:</label>
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  size="28"
-                />
-                <button className="btn btnLogin" type="submit">
+              <div id="animatedExample" className="animated bounceInLeft">
+                <img src={logoWhite} alt={"logoWhite"} />
+              </div>
+              <div
+                style={{
+                  backgroundColor: "white",
+                  padding: "25px 45px",
+                  minWidth: "500px",
+                  marginTop: "100px",
+                  borderRadius: "4px",
+                  marginLeft: "15%",
+                }}
+              >
+                <h1
+                  style={{
+                    fontSize: "2.125rem",
+                    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+                    fontWeight: "400",
+                    lineHeight: "1.17",
+                    letterSpacing: "0.00735em",
+                    marginBottom: "30px",
+                  }}
+                >
                   Войти
-                </button>
-              </form>
+                </h1>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+                    fontWeight: "400",
+                    lineHeight: "1.5",
+                    letterSpacing: "0.00938em",
+                  }}
+                >
+                  Новый пользователь?{" "}
+                  <Link
+                    to="/Register"
+                    style={{
+                      color: "#1473e6",
+                      cursor: "pointer",
+                      fontSize: "inherit",
+                    }}
+                  >
+                    Зарегистрируйтесь
+                  </Link>
+                </p>
+                <form
+                  onSubmit={this.authenticate}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <input
+                    className="inputLogin"
+                    id="email"
+                    type="email"
+                    name="email"
+                    size="28"
+                    placeholder="Имя пользователя"
+                  />
+                  <input
+                    className="inputLogin"
+                    id="password"
+                    type="password"
+                    name="password"
+                    size="28"
+                    placeholder="Пароль"
+                  />
+                  <button className="btn btnLogin" type="submit">
+                    Войти
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
         )}
       </>
     );
   }
 }
+
+/*const toHide = () => {
+  var elem = document.getElementById("mainHeader");
+  elem.style.visibility = "hidden";
+};*/
 
 logInPage.propTypes = {
   isLoggedIn: PropTypes.bool,

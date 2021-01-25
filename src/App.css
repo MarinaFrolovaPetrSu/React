@@ -89,3 +89,17 @@
 .btnHeader:hover {
   background-color: #ddd;
 }
+
+.inputLogin {
+  color: rgba(0, 0, 0, 0.54);
+  border: 0;
+  height: 1.1875em;
+  padding: 6px 0 7px;
+  margin-bottom: 30px;
+  margin-top: 16px;
+  font-size: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-width: rgba(0, 0, 0, 0.54);
+  ;
+}

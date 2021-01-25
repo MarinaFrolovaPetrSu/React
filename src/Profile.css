@@ -1,0 +1,13 @@
+.profile-title {
+  text-align: center;
+}
+
+.profile-title__subtext {
+  color: rgba(0, 0, 0, 0.54);
+  margin-bottom: 40px;
+}
+
+.profile {
+  padding: 44px 60px;
+  margin-bottom: 48px;
+}
