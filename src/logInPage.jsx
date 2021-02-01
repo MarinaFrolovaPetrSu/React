@@ -112,11 +112,6 @@ export class logInPage extends Component {
   }
 }
 
-/*const toHide = () => {
-  var elem = document.getElementById("mainHeader");
-  elem.style.visibility = "hidden";
-};*/
-
 logInPage.propTypes = {
   isLoggedIn: PropTypes.bool,
   logIn: PropTypes.func,

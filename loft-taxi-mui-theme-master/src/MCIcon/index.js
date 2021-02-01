@@ -6,8 +6,8 @@ import logo from "./mc_symbol.svg";
 const styles = theme => ({
   icon: {
     position: "absolute",
-    top: 8,
-    right: 8,
+    top: 15,
+    right: 40,
     width: 32
   }
 });

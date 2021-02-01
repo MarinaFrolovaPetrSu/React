@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logOut } from "./actions";
 
-export class Profile extends Component {
+export class LogoutFromProfile extends Component {
   unauthenticate = (event) => {
     event.preventDefault();
     this.props.logOut();
@@ -10,12 +10,9 @@ export class Profile extends Component {
 
   render() {
     return (
-        <p>
-          Profile.
           <button onClick={this.unauthenticate}>Выход</button>
-        </p>
         );
   }
 }
 
-export const ProfileWithAuth = connect(null, { logOut })(Profile);
+export const Logout = connect(null, { logOut })(LogoutFromProfile);

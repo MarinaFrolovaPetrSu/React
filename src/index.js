@@ -12,7 +12,7 @@ import { store } from "./store";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store ={store}>
+      <Provider store={store}>
         <MuiThemeProvider theme={theme}>
           <App />
         </MuiThemeProvider>
